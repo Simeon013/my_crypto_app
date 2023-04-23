@@ -13,8 +13,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     double myheight = MediaQuery.of(context).size.height;
     double mywidth = MediaQuery.of(context).size.width;
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
           backgroundColor: Colors.white,
           body: Container(
             height: myheight,
@@ -78,7 +77,6 @@ class _SplashState extends State<Splash> {
               ],
             ),
           ),
-        )
     );
   }
 }

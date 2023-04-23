@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_crypto_app/views/another_page.dart';
 
 import 'home.dart';
 
@@ -15,17 +16,16 @@ class _NavBarState extends State<NavBar> {
 
   List<Widget> pages = [
     Home(),
-    Home(),
-    Home(),
-    Home()
+    AnotherPage(),
+    AnotherPage(),
+    AnotherPage()
   ];
 
   @override
   Widget build(BuildContext context) {
     double myheight = MediaQuery.of(context).size.height;
-    double mywidth = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
+    // double mywidth = MediaQuery.of(context).size.width;
+    return Scaffold(
         backgroundColor: Colors.white,
         body: pages.elementAt(_currentIndex),
         bottomNavigationBar: BottomNavigationBar(
@@ -94,7 +94,6 @@ class _NavBarState extends State<NavBar> {
             ),
           ]
         ),
-      ),
     );
   }
 }

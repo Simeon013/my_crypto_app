@@ -10,7 +10,12 @@ class Item extends StatelessWidget {
     double myheight = MediaQuery.of(context).size.height;
     double mywidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: mywidth * 0.005, vertical: myheight * 0.02),
+      padding: EdgeInsets.only(
+        left: mywidth * 0.004,
+        right: mywidth * 0.04,
+        // top: myheight * 0.005,
+        bottom: myheight * 0.03
+      ),
       child: Container(
         child: Row(
           children: [
@@ -79,7 +84,7 @@ class Item extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '\$ ' + item.currentPrice.toStringAsFixed(2) ,
+                    '\$' + item.currentPrice.toStringAsFixed(2) ,
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold

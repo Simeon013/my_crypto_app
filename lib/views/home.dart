@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_crypto_app/views/components/item.dart';
-import 'package:my_crypto_app/views/components/item2.dart';
 
 import '../models/coin_model.dart';
+import 'components/item.dart';
+import 'components/item2.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-
   @override
   void initState() {
     getCoinMarket();
@@ -22,188 +21,204 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    double myheight = MediaQuery.of(context).size.height;
-    double mywidth = MediaQuery.of(context).size.width;
+    double myHeight = MediaQuery.of(context).size.height;
+    double myWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-        height: myheight,
-        width: mywidth,
+        height: myHeight,
+        width: myWidth,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xfffcdb68),
-              Color(0xffFBC700)
-            ]
-          ),
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color.fromARGB(255, 253, 225, 112),
+                Color(0xffFBC700),
+              ]),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: myheight * 0.03),
+              padding: EdgeInsets.symmetric(vertical: myHeight * 0.03),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: mywidth * 0.02 , vertical: myheight * 0.005),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: myWidth * 0.02, vertical: myHeight * 0.005),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(5)
-                    ),
+                        color: Colors.white.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(5)),
                     child: Text(
-                      'Main Portfolio',
-                      style: TextStyle(
-                        fontSize: 15
-                      ),
+                      'Main portfolio',
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                   Text(
-                    'Top 10 Coins',
-                    style: TextStyle(
-                        fontSize: 15
-                    ),
+                    'Top 10 coins',
+                    style: TextStyle(fontSize: 18),
                   ),
                   Text(
-                    'Expérimental',
-                    style: TextStyle(
-                        fontSize: 15
-                    ),
+                    'Exprimental',
+                    style: TextStyle(fontSize: 18),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: mywidth*0.07),
+              padding: EdgeInsets.symmetric(horizontal: myWidth * 0.07),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '\$ 7,466.20 ',
-                    style: TextStyle(
-                        fontSize: 35
-                    ),
+                    '\$ 7,466.20',
+                    style: TextStyle(fontSize: 35),
                   ),
                   Container(
-                    padding: EdgeInsets.all(mywidth * 0.02),
-                    height: myheight*0.05,
-                    width: mywidth*0.1,
+                    padding: EdgeInsets.all(myWidth * 0.02),
+                    height: myHeight * 0.05,
+                    width: myWidth * 0.1,
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white.withOpacity(0.5),
-                    ),
+                        shape: BoxShape.circle,
+                        color: Colors.white.withOpacity(0.5)),
                     child: Image.asset(
-                      "assets/icons/5.1.png",
+                      'assets/icons/5.1.png',
                     ),
                   )
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: mywidth*0.07),
+              padding: EdgeInsets.symmetric(horizontal: myWidth * 0.07),
               child: Row(
                 children: [
                   Text(
                     '+162% all time',
-                    style: TextStyle(
-                        fontSize: 16
-                    ),
+                    style: TextStyle(fontSize: 16),
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: myheight * 0.002,
+              height: myHeight * 0.02,
             ),
             Container(
-              height: myheight * 0.7,
-              width: mywidth,
+              height: myHeight * 0.7,
+              width: myWidth,
               decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: 5,
-                      color: Colors.grey.shade300,
-                      spreadRadius: 3,
-                      offset: Offset(0, 3))
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50)
-                )
-              ),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 5,
+                        color: Colors.grey.shade300,
+                        spreadRadius: 3,
+                        offset: Offset(0, 3))
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
+                  )),
               child: Column(
                 children: [
                   SizedBox(
-                    height: myheight * 0.03,
+                    height: myHeight * 0.03,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mywidth * 0.08),
+                    padding: EdgeInsets.symmetric(horizontal: myWidth * 0.08),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Assets",
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                          'Assets',
+                          style: TextStyle(fontSize: 20),
                         ),
                         Icon(Icons.add)
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: myheight * 0.02,
+                    height: myHeight * 0.02,
                   ),
-                  isRefreshing == true
-                      ? Center(
-                        child: CircularProgressIndicator(),
-                        )
-                      : ListView.builder(
-                          itemCount: 4,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index){
-                            return Item(item: CoinMarket![index],);
-                          }
+                  Container(
+                    height: myHeight * 0.36,
+                    child: isRefreshing == true
+                        ? Center(
+                      child: CircularProgressIndicator(
+                        color: Color(0xffFBC700),
+                      ),
+                    )
+                        : coinMarket == null || coinMarket!.length == 0
+                        ? Padding(
+                      padding: EdgeInsets.all(myHeight * 0.06),
+                      child: Center(
+                        child: Text(
+                          'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                          style: TextStyle(fontSize: 18),
                         ),
+                      ),
+                    )
+                        : ListView.builder(
+                      itemCount: 4,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Item(
+                          item: coinMarket![index],
+                        );
+                      },
+                    ),
+                  ),
                   SizedBox(
-                    height: myheight * 0.02,
+                    height: myHeight * 0.02,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mywidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: myWidth * 0.05),
                     child: Row(
                       children: [
                         Text(
                           'Recommandé',
                           style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 22, fontWeight: FontWeight.bold),
                         ),
                       ],
-                    )
+                    ),
                   ),
                   SizedBox(
-                    height: myheight * 0.01,
+                    height: myHeight * 0.01,
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(left: mywidth * 0.03),
-                      child: ListView.builder(
+                      padding: EdgeInsets.only(left: myWidth * 0.03),
+                      child: isRefreshing == true
+                          ? Center(
+                        child: CircularProgressIndicator(
+                          color: Color(0xffFBC700),
+                        ),
+                      )
+                          : coinMarket == null || coinMarket!.length == 0
+                          ? Padding(
+                        padding: EdgeInsets.all(myHeight * 0.06),
+                        child: Center(
+                          child: Text(
+                            'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      )
+                          : ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: CoinMarket!.length,
-                        itemBuilder: (context, index){
+                        itemCount: coinMarket!.length,
+                        itemBuilder: (context, index) {
                           return Item2(
-                            item: CoinMarket![index],
+                            item: coinMarket![index],
                           );
-                        }
+                        },
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: myheight * 0.01,
+                    height: myHeight * 0.01,
                   ),
                 ],
               ),
@@ -216,34 +231,30 @@ class _HomeState extends State<Home> {
 
   bool isRefreshing = true;
 
-  List? CoinMarket = [];
-  var CoinMarketList;
+  List? coinMarket = [];
+  var coinMarketList;
   Future<List<CoinModel>?> getCoinMarket() async {
-    const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=true';
+    const url =
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=true';
 
     setState(() {
       isRefreshing = true;
     });
-
     var response = await http.get(Uri.parse(url), headers: {
-      "Content-Type" : "application/json",
-      "Accept" : "application/json",
+      "Content-Type": "application/json",
+      "Accept": "application/json",
     });
-
     setState(() {
       isRefreshing = false;
     });
-
-    if (response.statusCode == 200){
+    if (response.statusCode == 200) {
       var x = response.body;
-      CoinMarketList = coinModelFromJson(x);
+      coinMarketList = coinModelFromJson(x);
       setState(() {
-        CoinMarket = CoinMarketList;
+        coinMarket = coinMarketList;
       });
     } else {
       print(response.statusCode);
     }
   }
-
 }
-
